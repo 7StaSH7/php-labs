@@ -1,4 +1,9 @@
-﻿<?php
+<?php
+
+namespace Comment;
+
+use User\User;
+use DateTime;
 
 class Comment
 {
@@ -15,16 +20,14 @@ class Comment
 
     private function randomDate($start_date, $end_date)
     {
-        $min = strtotime($start_date);
-        $max = strtotime($end_date);
-
-        $val = rand($min, $max);
-
-        return date('d.m.Y H:i:s', $val);
+        $randomTimestamp = mt_rand($start_date->getTimestamp(), $end_date->getTimestamp());
+        $randomDate = new DateTime();
+        $randomDate->setTimestamp($randomTimestamp);
+        return $randomDate;
     }
     public function toString()
     {
-        return  '<div style="display: flex;margin-top: 20px;">' . $this->comment . $this->user->toCommentString() . '</div>';
+        return  '<div style="display: flex;margin-top: 20px;">' . $this->comment . $this->user->toCommentString() . $this->createdAt->format('d.m.Y H:i:s') . '</div>';
     }
     public function getCreatedAt()
     {

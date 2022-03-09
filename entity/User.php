@@ -1,9 +1,10 @@
-﻿<?php
-require("vendor/autoload.php");
+<?php
+
+namespace User;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
-
+use DateTime;
 
 class User
 {
@@ -50,8 +51,8 @@ class User
 
     public function toCommentString()
     {
-        return '<div style="display: flex;margin-top: 20px;">' .
-            '<p style="width: 50px;margin: 0;"><b>Name:</b></p>' . '<p style="width: 100px;margin: 0;">' . $this->name . '</p>' . '</div>';
+        return '<div style="display: flex;margin-left: 30px;">' .
+            '<p style="width: 50px;margin: 0;"><b>Name:</b></p>' . '<p style="width: 70px;margin: 0;">' . $this->name . '</p>' . '</div>';
     }
     public function getCreatedAt()
     {
