@@ -1,0 +1,6 @@
+{
+    "require": {
+        "symfony/validator": "^6.0",
+        "friendsofphp/php-cs-fixer": "^3.6"
+    }
+}
