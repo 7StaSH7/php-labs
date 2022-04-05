@@ -11,7 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    public $timestamps = false;
     protected $fillable = [
         'name',
         'surname',
@@ -27,6 +27,6 @@ class User extends Authenticatable
 
     public function addresses()
     {
-      return $this->hasMany(Address::class);
+        return $this->hasMany(Address::class);
     }
 }
