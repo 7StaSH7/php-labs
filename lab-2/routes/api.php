@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('customers', 'App\Http\Controllers\UserController@getCustomers');
+
+Route::get('customers/{customer}', 'App\Http\Controllers\UserController@getCustomer');

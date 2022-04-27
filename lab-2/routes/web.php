@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/customers', function () {
-    // $client = new GuzzleHttp\Client();
-    // $customers = $client->get('http://127.0.0.1:8000/api/customers');
-    // return view('customers', ['customers', $customers]);
-});
+// Route::get('/customers', function () {
+//     return view('customers');
+// });
+
+Route::get('/{path?}', function () {
+    return view('customers');
+})->where('path', '.*');

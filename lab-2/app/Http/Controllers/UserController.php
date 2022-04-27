@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     public function getCustomers()
     {
-        $users = User::all()->toJson(JSON_PRETTY_PRINT);
-        return response($users, 200);
+        return response(User::all(), 200);
+    }
+    public function getCustomer($customerId)
+    {
+        return response(User::with(['addresses' => function ($q) use ($customerId) {
+            $q->where('user_id', '=', $customerId);
+            $q->orderBy('created_at', 'DESC');
+        }])->findOrFail($customerId), 200);
     }
 }
