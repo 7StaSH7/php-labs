@@ -16,14 +16,11 @@ class User extends Authenticatable
         'name',
         'surname',
         'email',
-        'password',
         'is_blocked',
-        'phone_number'
+        'phone_number',
+        'registration_date'
     ];
 
-    protected $hidden = [
-        'password',
-    ];
 
     public function addresses()
     {
